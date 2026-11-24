@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Calculator</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: lightyellow;
+            font-family: Arial;
+            padding: 50px;
+        }
+
+        input {
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+
+        #result {
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Grade Calculator</h1>
+
+    <input type="number" id="marks" placeholder="Enter your marks">
+
+    <button onclick="calculateGrade()">Calculate Grade</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function calculateGrade() {
+
+            let marks = document.getElementById("marks").value;
+
+            let result = document.getElementById("result");
+
+            if (marks === "") {
+                result.textContent = "Please enter marks";
+                result.style.color = "red";
+            }
+            else if (marks < 0 || marks > 100) {
+                result.textContent = "Invalid Marks";
+                result.style.color = "red";
+            }
+            else if (marks >= 90) {
+                result.textContent = "Your Grade is A+";
+                result.style.color = "green";
+            }
+            else if (marks >= 80) {
+                result.textContent = "Your Grade is A";
+                result.style.color = "green";
+            }
+            else if (marks >= 70) {
+                result.textContent = "Your Grade is B";
+                result.style.color = "blue";
+            }
+            else if (marks >= 60) {
+                result.textContent = "Your Grade is C";
+                result.style.color = "blue";
+            }
+            else if (marks >= 50) {
+                result.textContent = "Your Grade is D";
+                result.style.color = "orange";
+            }
+            else {
+                result.textContent = "Your Grade is F";
+                result.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sum of Numbers</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: lightyellow;
+            font-family: Arial;
+            padding: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+        }
+
+        #result {
+            color: blue;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sum of Numbers 1 to 100</h1>
+
+    <button onclick="calculateSum()">Calculate Sum</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function calculateSum() {
+
+            let i = 1;
+            let sum = 0;
+
+            while (i <= 100) {
+                sum = sum + i;
+                i++;
+            }
+
+            document.getElementById("result").textContent =
+                "Total Sum = " + sum;
+        }
+    </script>
+
+</body>
+</html>

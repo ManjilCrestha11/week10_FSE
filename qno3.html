@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Largest Number</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: lightpink;
+            font-family: Arial;
+            padding: 40px;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        button {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+        }
+
+        #result {
+            font-size: 25px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Find Largest Number</h1>
+
+    <button onclick="findLargest()">Find Largest</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function findLargest() {
+
+            let a = Number(prompt("Enter first number:"));
+            let b = Number(prompt("Enter second number:"));
+            let c = Number(prompt("Enter third number:"));
+
+            let result = document.getElementById("result");
+
+            if (a >= b && a >= c) {
+                result.textContent = "Largest Number is: " + a;
+            }
+            else if (b >= a && b >= c) {
+                result.textContent = "Largest Number is: " + b;
+            }
+            else {
+                result.textContent = "Largest Number is: " + c;
+            }
+        }
+    </script>
+
+</body>
+</html>

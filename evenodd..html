@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Even or Odd</title>
+</head>
+<body>
+
+    <h1 id="result"></h1>
+
+    <script>
+        let num = Number(prompt("Enter a number:"));
+
+        let result = document.getElementById("result");
+
+        if (num % 2 === 0) {
+            result.textContent = "The number is Even";
+            result.style.color = "green";
+        } else {
+            result.textContent = "The number is Odd";
+            result.style.color = "red";
+        }
+    </script>
+
+</body>
+</html>

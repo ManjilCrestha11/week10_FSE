@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: lightgreen;
+            font-family: Arial;
+        }
+
+        button {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+        }
+
+        #result {
+            font-size: 20px;
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Multiplication Table</h1>
+
+    <button onclick="table()">Generate Table</button>
+
+    <div id="result"></div>
+
+    <script>
+        function table() {
+
+            let num = Number(prompt("Enter a number:"));
+
+            let output = "";
+
+            for (let i = 1; i <= 10; i++) {
+                output += num + " x " + i + " = " + (num * i) + "<br>";
+            }
+
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+
+</body>
+</html>

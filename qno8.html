@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Numbers</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: lightblue;
+            font-family: Arial;
+            padding: 30px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+
+        #result {
+            font-size: 25px;
+            margin-top: 20px;
+        }
+
+        .even {
+            color: blue;
+        }
+
+        .odd {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Generate Numbers 1 to 20</h1>
+
+    <button onclick="generateNumbers()">Generate Numbers</button>
+
+    <div id="result"></div>
+
+    <script>
+        function generateNumbers() {
+
+            let output = "";
+
+            for (let i = 1; i <= 20; i++) {
+
+                if (i % 2 === 0) {
+                    output += "<span class='even'>" + i + " </span>";
+                } else {
+                    output += "<span class='odd'>" + i + " </span>";
+                }
+            }
+
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+
+</body>
+</html>

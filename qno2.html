@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Numbers</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: lightyellow;
+            font-family: Arial;
+        }
+
+        .special {
+            color: red;
+            font-weight: bold;
+        }
+
+        .normal {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Numbers from 1 to 50</h1>
+
+    <button onclick="generate()">Generate Numbers</button>
+
+    <div id="result"></div>
+
+    <script>
+        function generate() {
+            let output = "";
+
+            for (let i = 1; i <= 50; i++) {
+
+                console.log(i);
+
+                if (i % 5 === 0) {
+                    output += "<span class='special'>" + i + " </span>";
+                    console.log("Divisible by 5:", i);
+                } else {
+                    output += "<span class='normal'>" + i + " </span>";
+                }
+            }
+
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+
+</body>
+</html>

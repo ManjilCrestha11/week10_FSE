@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result Management System</title>
+
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 25px;
+            max-width: 800px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: darkblue;
+            text-align: center;
+        }
+
+        input {
+            display: block;
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 12px;
+            background-color: green;
+            color: white;
+            border: none;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: lightgreen;
+        }
+
+        #message {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Result Management System</h1>
+
+    <h3>Enter Student Information</h3>
+
+    <input type="text" id="name" placeholder="Student Name">
+
+    <input type="number" id="math" placeholder="Mathematics Marks">
+
+    <input type="number" id="science" placeholder="Science Marks">
+
+    <input type="number" id="computer" placeholder="Computer Marks">
+
+    <button onclick="addStudent()">Add Student</button>
+
+    <button onclick="generateList()">Generate Student List</button>
+
+    <p id="message"></p>
+
+    <h2>Student Results</h2>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+    // Create an array
+    let students = [];
+
+    // Function to calculate grade
+    function calculateGrade(percentage) {
+
+        if (percentage >= 90) {
+            return "A+";
+        }
+        else if (percentage >= 80) {
+            return "A";
+        }
+        else if (percentage >= 70) {
+            return "B";
+        }
+        else if (percentage >= 60) {
+            return "C";
+        }
+        else if (percentage >= 50) {
+            return "D";
+        }
+        else {
+            return "F";
+        }
+    }
+
+    // Function to add student
+    function addStudent() {
+
+        let name = document.getElementById("name").value;
+
+        let math = document.getElementById("math").value;
+
+        let science = document.getElementById("science").value;
+
+        let computer = document.getElementById("computer").value;
+
+        let message = document.getElementById("message");
+
+        // Check student name
+        if (name.trim() === "") {
+            message.textContent = "Please enter student name";
+            message.style.color = "red";
+            return;
+        }
+
+        // Check empty marks
+        if (math === "" || science === "" || computer === "") {
+            message.textContent = "Please enter all subject marks";
+            message.style.color = "red";
+            return;
+        }
+
+        // Convert into numbers
+        math = Number(math);
+        science = Number(science);
+        computer = Number(computer);
+
+        // Validate marks
+        if (
+            math < 0 || math > 100 ||
+            science < 0 || science > 100 ||
+            computer < 0 || computer > 100
+        ) {
+            message.textContent = "Invalid Marks";
+            message.style.color = "red";
+            return;
+        }
+
+        // Calculate total
+        let total = math + science + computer;
+
+        // Calculate percentage
+        let percentage = (total / 300) * 100;
+
+        // Calculate grade
+        let grade = calculateGrade(percentage);
+
+        // Create student object
+        let student = {
+            name: name,
+            total: total,
+            percentage: percentage,
+            grade: grade
+        };
+
+        // Add student to array
+        students.push(student);
+
+        message.textContent = "Result calculated successfully!";
+        message.style.color = "green";
+
+        // Clear input fields
+        document.getElementById("name").value = "";
+        document.getElementById("math").value = "";
+        document.getElementById("science").value = "";
+        document.getElementById("computer").value = "";
+
+    }
+
+    // Function to display student list
+    function generateList() {
+
+        let output = "";
+
+        output += "<table>";
+
+        output += "<tr>";
+        output += "<th>Name</th>";
+        output += "<th>Total Marks</th>";
+        output += "<th>Percentage</th>";
+        output += "<th>Grade</th>";
+        output += "</tr>";
+
+        // Loop through student array
+        for (let i = 0; i < students.length; i++) {
+
+            output += "<tr>";
+
+            output += "<td>" + students[i].name + "</td>";
+
+            output += "<td>" + students[i].total + "</td>";
+
+            output += "<td>" +
+                students[i].percentage.toFixed(2) + "%</td>";
+
+            output += "<td>" + students[i].grade + "</td>";
+
+            output += "</tr>";
+        }
+
+        output += "</table>";
+
+        document.getElementById("result").innerHTML = output;
+
+    }
+
+</script>
+
+</body>
+</html>
